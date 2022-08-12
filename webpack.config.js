@@ -28,6 +28,16 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.m?js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+          },
+        },
+      },
+      {
         test: /\.(s[ac]ss|css)$/i,
         use: [
           MiniCssExtractPlugin.loader,
@@ -43,7 +53,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|jpg|gif|svg|ico)$/i,
+        test: /\.(png|svg|jpg|gif)$/i,
         exclude: [/fonts/],
         type: "asset/resource",
         generator: {
