@@ -18,7 +18,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       chunks: ['index','common'],
-      template: './src//index.html',
+      template: './src/index.pug',
     }),
     new MiniCssExtractPlugin({
       filename: 'css/[name].css',
@@ -36,6 +36,17 @@ module.exports = {
             presets: ['@babel/preset-env'],
           },
         },
+      },
+      {
+        test:/\.pug$/,
+        use: [
+          {
+            loader: 'pug-loader',
+            options: {
+              pretty: (mode == "development" ?? true ),
+            }
+          }
+        ],
       },
       {
         test: /\.(s[ac]ss|css)$/i,
