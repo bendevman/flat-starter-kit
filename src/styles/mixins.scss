@@ -1,0 +1,36 @@
+@use 'vars';
+
+@function rem($px) {
+	@return $px / $font-size + 0rem;
+}
+
+//responsive
+@mixin xl {
+	@media screen and (max-width: 1200px) {
+		@content;
+	}
+}
+
+@mixin lg {
+	@media screen and (max-width: 992px) {
+		@content;
+	}
+}
+
+@mixin md {
+	@media screen and (max-width: 768px) {
+		@content;
+	}
+}
+
+@mixin sm {
+	@media screen and (max-width: 576px) {
+		@content;
+	}
+}
+
+@mixin xs {
+	@media screen and (max-width: 480px) {
+		@content;
+	}
+}

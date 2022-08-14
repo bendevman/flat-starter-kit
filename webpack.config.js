@@ -7,7 +7,8 @@ const mode = process.env.NODE_ENV ?? "development"
 module.exports = {
   mode: mode,
   entry: {
-    'index': './src/index.js',
+    'home': './src/pages/home/home.js',
+    'about': './src/pages/about/about.js',
   },
   output: {
     path: path.resolve(__dirname, './dist'),
@@ -17,8 +18,13 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      chunks: ['index','common'],
-      template: './src/index.pug',
+      chunks: ['home','common'],
+      template: './src/pages/home/home.pug',
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'about.html',
+      chunks: ['about','common'],
+      template: './src/pages/about/about.pug',
     }),
     new MiniCssExtractPlugin({
       filename: 'css/[name].css',

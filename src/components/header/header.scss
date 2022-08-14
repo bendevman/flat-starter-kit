@@ -1,0 +1,6 @@
+@use '../../styles/vars.scss';
+@use '../../styles/mixins.scss';
+
+.header {
+  color: vars.$headerTextColor;
+}
